@@ -146,7 +146,7 @@ body {
 
 // about section
 
-.about {
+.about,.project {
   width: 100%;
   height: auto;
   padding: 50px 10vw;
@@ -188,9 +188,9 @@ body {
       content: "";
       position: absolute;
       bottom: 2px;
-      left: 0;
+      left: 30%;
       // transform: translateX(-50%);
-      width: 100%;
+      width: 40%;
       height: 1px;
       background-color: #ffffff;
     }
@@ -232,14 +232,13 @@ body {
     }
     .right-col {
       position: relative;
-      .about-para{
+      .about-para {
         font-size: 1.2rem;
         font-weight: 300;
         line-height: 35px;
         margin-bottom: 40px;
       }
       .btn {
-      
         background-color: #ff5722;
         color: #ffffff;
         padding: 10px 20px;
@@ -253,6 +252,37 @@ body {
           background-color: #e64a19;
         }
       }
+    }
+  }
+
+  .skill-container {
+    position: relative;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    .skill-card {
+      height: 200px;
+      border-radius: 10px;
+      border: 1px solid #464646;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        color: #ffffff;
+      }
+      .skill {
+        font-size: 2rem;
+        color: #464646;
+        line-height: 200px;
+        &:hover {
+          background: var(--bg);
+        }
+      }
+    }
+    .large {
+      grid-column: 2 span;
     }
   }
 }

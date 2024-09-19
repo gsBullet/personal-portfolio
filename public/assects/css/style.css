@@ -134,27 +134,32 @@ body {
 .home .hero-content .btn:hover {
   background-color: #e64a19;
 }
-.about {
+.about,
+.project {
   width: 100%;
   height: auto;
   padding: 50px 10vw;
 }
-.about .heading {
+.about .heading,
+.project .heading {
   text-align: center;
   font-weight: 500;
   font-size: 3.55rem;
   text-transform: capitalize;
 }
-.about .heading .highlight {
+.about .heading .highlight,
+.project .heading .highlight {
   color: #ff5722;
 }
-.about .sub-heading {
+.about .sub-heading,
+.project .sub-heading {
   text-align: center;
   font-size: 1rem;
   margin: 10px;
   opacity: 0.7;
 }
-.about .seperator {
+.about .seperator,
+.project .seperator {
   text-transform: capitalize;
   color: #ffffff;
   text-decoration: none;
@@ -162,7 +167,8 @@ body {
   padding: 10px;
   position: relative;
 }
-.about .seperator::before {
+.about .seperator::before,
+.project .seperator::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -173,37 +179,43 @@ body {
   background-color: #ffffff;
   border-radius: 50%;
 }
-.about .seperator::after {
+.about .seperator::after,
+.project .seperator::after {
   content: "";
   position: absolute;
   bottom: 2px;
-  left: 0;
-  width: 100%;
+  left: 30%;
+  width: 40%;
   height: 1px;
   background-color: #ffffff;
 }
-.about .about-me-container {
+.about .about-me-container,
+.project .about-me-container {
   margin: 150px 0 100px;
   width: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
   grid-gap: 100px;
 }
-.about .about-me-container .left-col {
+.about .about-me-container .left-col,
+.project .about-me-container .left-col {
   position: relative;
 }
-.about .about-me-container .left-col .about-image {
+.about .about-me-container .left-col .about-image,
+.project .about-me-container .left-col .about-image {
   border-radius: 10px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
   width: 100%;
 }
-.about .about-me-container .left-col::before {
+.about .about-me-container .left-col::before,
+.project .about-me-container .left-col::before {
   content: "yes, its me";
   position: absolute;
   top: -40px;
   right: 0;
 }
-.about .about-me-container .left-col::after {
+.about .about-me-container .left-col::after,
+.project .about-me-container .left-col::after {
   content: "";
   position: absolute;
   top: -30px;
@@ -214,16 +226,19 @@ body {
   transform-origin: right;
   transform: rotate(-40deg);
 }
-.about .about-me-container .right-col {
+.about .about-me-container .right-col,
+.project .about-me-container .right-col {
   position: relative;
 }
-.about .about-me-container .right-col .about-para {
+.about .about-me-container .right-col .about-para,
+.project .about-me-container .right-col .about-para {
   font-size: 1.2rem;
   font-weight: 300;
   line-height: 35px;
   margin-bottom: 40px;
 }
-.about .about-me-container .right-col .btn {
+.about .about-me-container .right-col .btn,
+.project .about-me-container .right-col .btn {
   background-color: #ff5722;
   color: #ffffff;
   padding: 10px 20px;
@@ -234,6 +249,43 @@ body {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-.about .about-me-container .right-col .btn:hover {
+.about .about-me-container .right-col .btn:hover,
+.project .about-me-container .right-col .btn:hover {
   background-color: #e64a19;
+}
+.about .skill-container,
+.project .skill-container {
+  position: relative;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+.about .skill-container .skill-card,
+.project .skill-container .skill-card {
+  height: 200px;
+  border-radius: 10px;
+  border: 1px solid #464646;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.about .skill-container .skill-card:hover,
+.project .skill-container .skill-card:hover {
+  color: #ffffff;
+}
+.about .skill-container .skill-card .skill,
+.project .skill-container .skill-card .skill {
+  font-size: 2rem;
+  color: #464646;
+  line-height: 200px;
+}
+.about .skill-container .skill-card .skill:hover,
+.project .skill-container .skill-card .skill:hover {
+  background: var(--bg);
+}
+.about .skill-container .large,
+.project .skill-container .large {
+  grid-column: 2 span;
 }
