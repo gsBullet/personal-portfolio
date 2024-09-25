@@ -1,5 +1,3 @@
-// server.js or app.js
-
 require("dotenv").config(); // Load environment variables
 const express = require("express");
 const cors = require("cors");
@@ -13,19 +11,19 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the "public" directory
-const initialPath = path.join(__dirname, "public");
-app.use(express.static(initialPath));
+// Serve React production build
+app.use(express.static(path.join(__dirname, "public")));
 
-// Serve the index.html at the root route
-app.get("/", (req, res) => {
-  res.sendFile(path.join(initialPath, "index.html"));
+// Handle React routing, send `index.html` for unmatched routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-
-app.post("/mail", (req, res) => {
+// Email route
+app.post("/mail", async (req, res) => {
   const { firstName, lastName, email, message } = req.body;
 
-  const transporter = nodemailer.createTransport({
+  // Configure the mail transporter
+  const transporter = await nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
     port: 465,
@@ -38,24 +36,23 @@ app.post("/mail", (req, res) => {
     debug: true,
   });
 
+  // Mail options (sent to yourself, acknowledging the sender)
   const mailOptions = {
-    from: `${process.env.EMAIL}`,
-    to: `${email}`,
-    subject: "portfolio submission",
-    text: `First Name: ${firstName}\nLast Name: ${lastName} \nEmail: ${email}\nMessage: ${message}`,
+    from: `${email}`, // Sender's email
+    to: `${process.env.EMAIL}`, // Your email (where you receive submissions)
+    subject: "Portfolio Submission",
+    text: `First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nMessage: ${message}`,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return res.status(500).json("Failed to send email");
-    } else {
-      return res
-        .status(200)
-        .json(
-          "Email sent successfully, I will replay to you within 2 working days"
-        );
-    }
-  });
+  // Send the email
+  await transporter
+    .sendMail(mailOptions)
+    .then((info) => {
+      res.status(200).json("Email sent successfully");
+    })
+    .catch((error) => {
+      res.status(500).json("Failed to send email");
+    });
 });
 
 // Start the server
