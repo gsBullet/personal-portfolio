@@ -12,11 +12,11 @@ app.use(cors());
 app.use(express.json());
 
 // Serve React production build
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "")));
 
 // Handle React routing, send `index.html` for unmatched routes
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname,  "index.html"));
 });
 // Email route
 app.post("/mail", async (req, res) => {
