@@ -2,3 +2,5 @@
 
 .env
 .gitIgnore
+# Local Netlify folder
+.netlify
