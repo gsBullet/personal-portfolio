@@ -25,7 +25,7 @@ let projectContainer = document.querySelector(".project-container");
 
 projects.forEach((project) => {
   projectContainer.innerHTML += `<div class="project-card " data-tags="#all, ${project.tags}">
-        <img src="./public/assects/img/${project.image}" alt="" class="project-image" />
+        <img src="./assects/img/${project.image}" alt="" class="project-image" />
         <div class="project-content">
           <h3 class="project-title">${project.name}</h3>
           <span class="tags">${project.tags}</span>

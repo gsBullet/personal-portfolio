@@ -1,4 +1,4 @@
-// toggle button 
+// toggle button
 
 const toggleBtn = document.querySelector(".toggle-btn");
 const linksContainer = document.querySelector(".links-container");
@@ -8,7 +8,7 @@ toggleBtn.addEventListener("click", () => {
   linksContainer.classList.toggle("show");
 });
 
-// kinks 
+// kinks
 
 const links = document.querySelectorAll(".link");
 
@@ -32,11 +32,11 @@ btn.addEventListener("click", async () => {
     email.value.length &&
     message.value.length
   ) {
-    await fetch("/mail", {
-      method: "post",
-      headers: new Headers({
+    await fetch("/.netlify/functions/sendMail", {
+      method: "POST",
+      headers:{
         "Content-Type": "application/json",
-      }),
+      },
       body: JSON.stringify({
         firstName: firstName.value,
         lastName: lastName.value,
@@ -46,9 +46,11 @@ btn.addEventListener("click", async () => {
     })
       .then((res) => res.json())
       .then((data) => {
-       return alert(data);
+        console.log(data);
+        
+        return alert(data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.log(err));
   } else {
     return alert("Please fill in all fields");
   }
