@@ -345,18 +345,21 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
 }
-.project .project-container .project-card {
+.project .project-container .project-link {
+  color: #e3e3e3;
+}
+.project .project-container .project-link .project-card {
   position: relative;
   cursor: pointer;
   display: block;
   transition: width 2s, height 2s, transform 1s;
 }
-.project .project-container .project-card img {
+.project .project-container .project-link .project-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.project .project-container .project-card .project-content {
+.project .project-container .project-link .project-card .project-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -370,21 +373,21 @@ body {
   text-transform: capitalize;
   opacity: 0;
 }
-.project .project-container .project-card .project-content .project-title {
+.project .project-container .project-link .project-card .project-content .project-title {
   font-weight: 300;
   font-size: 2.5rem;
   text-align: center;
 }
-.project .project-container .project-card .project-content .tags {
+.project .project-container .project-link .project-card .project-content .tags {
   position: absolute;
   bottom: 20px;
   opacity: 0.6;
   width: 90%;
 }
-.project .project-container .project-card .project-content:hover {
+.project .project-container .project-link .project-card .project-content:hover {
   opacity: 1;
 }
-.project .project-container .project-card:hover {
+.project .project-container .project-link .project-card:hover {
   transform: rotate(360deg);
 }
 .project .project-container .hide {
