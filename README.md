@@ -4,6 +4,8 @@
 
 # netlify dev
 
+# netlify deploy
+
 # netlify deploy --prod
 
 # touch netlify/functions/sendMail.js

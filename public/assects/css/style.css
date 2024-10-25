@@ -375,7 +375,7 @@ body {
 }
 .project .project-container .project-link .project-card .project-content .project-title {
   font-weight: 300;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 .project .project-container .project-link .project-card .project-content .tags {
@@ -383,6 +383,7 @@ body {
   bottom: 20px;
   opacity: 0.6;
   width: 90%;
+  font-size: 15px;
 }
 .project .project-container .project-link .project-card .project-content:hover {
   opacity: 1;
