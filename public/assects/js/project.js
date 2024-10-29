@@ -49,22 +49,23 @@ let projects = [
     link: "https://gsbullet.github.io/praroz_web_design/",
   },
   {
-    name: "Blog App",
-    tags: " #backend , #javaScript , #merm , #aws",
-    image: "blog.png",
-    link: "https://provati-blog.netlify.app/",
-  },
-  {
     name: "Banglesh.2",
-    tags: "#html_css , #javaScript",
+    tags: "#html_css, #javaScript, #react",
     image: "bd.PNG",
     link: "https://bangladesh-2.netlify.app/",
   },
   {
-    name: "project four",
-    tags: " #backend , #javaScript",
-    image: "all.png",
-    link: "",
+    name: "Blog App",
+    tags: " #backend, #react, #javaScript , #mern , #aws , #firebase, #node, #mongoDB, #fullStack",
+    image: "blog.png",
+    link: "https://provati-blog.netlify.app/",
+  },
+
+  {
+    name: "DIMS",
+    tags: " #express , #node, #mongoDB, #fullStack, #mern",
+    image: "dims.png",
+    link: "https://digital-info-management-system-production.up.railway.app/",
   },
   {
     name: "project four",
@@ -78,7 +79,7 @@ let projectContainer = document.querySelector(".project-container");
 
 projects.forEach((project) => {
   projectContainer.innerHTML += `
-  <a class="project-link" href="${project.link}">
+  <a class="project-link"  data-tags="#all, ${project.tags}" href="${project.link}">
   <div class="project-card " data-tags="#all, ${project.tags}">
         <img src="./assects/img/${project.image}" alt="" class="project-image" />
         <div class="project-content">
@@ -95,13 +96,13 @@ const filters = document.querySelectorAll(".filter-btn");
 filters.forEach((filterBtn) => {
   filterBtn.addEventListener("click", () => {
     let id = filterBtn.getAttribute("id");
-    let projectCards = document.querySelectorAll(".project-card");
+    let projectCards = document.querySelectorAll(".project-link");
 
     projectCards.forEach((card) => {
       if (card.getAttribute("data-tags").includes(id)) {
-        card.classList.remove("hide");
+        card.classList.remove("d-none");
       } else {
-        card.classList.add("hide");
+        card.classList.add("d-none");
       }
     });
     filters.forEach((btn) => btn.classList.remove("active"));

@@ -8,7 +8,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: "roboto", sans-serif;
+  font-family: "Arial";
   background: #3d3d3df3;
   color: #ffffff;
   width: 100%;
@@ -403,16 +403,18 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
 
-    .project-link{
+    .project-link {
       color: #e3e3e3;
       .project-card {
         position: relative;
         cursor: pointer;
         display: block;
+        width: 100% !important;
+        height: 100% !important;
         transition: width 2s, height 2s, transform 1s;
         img {
-          width: 100%;
-          height: 100%;
+          width: 100% !important;
+          height: 100% !important;
           object-fit: cover;
         }
         .project-content {
@@ -435,7 +437,7 @@ body {
           }
           .tags {
             position: absolute;
-            bottom: 20px;
+            bottom: 10px;
             opacity: 0.6;
             width: 90%;
             font-size: 15px;
@@ -445,10 +447,10 @@ body {
           }
         }
         &:hover {
-          transform: rotate(360deg);
+          transform: scale(1.5);
+          z-index: 999999999999999;
         }
       }
-
     }
 
     .hide {
@@ -757,4 +759,10 @@ body {
     // background: #bdbfc117;
     font-weight: 600;
   }
+}
+
+.d-none {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
